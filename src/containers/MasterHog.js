@@ -7,6 +7,11 @@ class MasterHog extends Component {
 
   constructor(props) {
     super(props)
+    debugger
+
+    for(let i in props.list.offspring.offspring){
+      document.getElementbyClassName('hoglist')
+    }
     this.state = {
       eyeColor: "blue",
       name: "Master Blaster",
@@ -16,9 +21,11 @@ class MasterHog extends Component {
   }
 
 
-  changeEyeColor(event) {
-    event.preventDefault()
-
+  changeEyeColor = (event) => {
+    // event.persist()
+    this.setState({
+      eyeColor: event.target.value
+    })
   }
 
 
@@ -55,7 +62,7 @@ class MasterHog extends Component {
           <img id="master-blaster" src={Master} alt='MasterBlaster' style={{height: 400}}></img>
         </div>
         <ul className="hoglist">
-          {/* render hog babies */}
+          {/*render*/}
         </ul>
 
       </div>
