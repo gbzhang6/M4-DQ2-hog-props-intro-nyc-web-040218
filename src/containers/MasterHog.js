@@ -7,16 +7,11 @@ class MasterHog extends Component {
 
   constructor(props) {
     super(props)
-    debugger
-
-    for(let i in props.list.offspring.offspring){
-      document.getElementbyClassName('hoglist')
-    }
     this.state = {
       eyeColor: "blue",
       name: "Master Blaster",
       weight: '2.54 Tons',
-      offspring: []
+      offspring: this.props.list.offspring
     }
   }
 
@@ -62,7 +57,12 @@ class MasterHog extends Component {
           <img id="master-blaster" src={Master} alt='MasterBlaster' style={{height: 400}}></img>
         </div>
         <ul className="hoglist">
-          {/*render*/}
+          {this.state.offspring.map(baby => (<BabyHog
+            name={baby.name}
+            key={baby.id}
+            weight={baby.weight}
+            eyeColor= {this.state.eyeColor} />)
+          )}
         </ul>
 
       </div>
